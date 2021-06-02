@@ -1,8 +1,20 @@
 #ifndef DEMO_OBSERVER_H
 #define DEMO_OBSERVER_H
 
-#include "event.hpp"
 #include <iostream>
+
+class Event
+{
+public:
+	using DescriptorType = const char*;
+	virtual DescriptorType type() const = 0;
+};
+
+class DemoEvent : public Event
+{
+public:
+	static constexpr DescriptorType descriptor = "DemoEvent";
+};
 
 class DemoObserver
 {
