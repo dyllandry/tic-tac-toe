@@ -7,12 +7,15 @@
  * Usage:
  *
  *     using namespace std::placeholders;
+ *
  *     DemoObserver observer;
  *     Dispatcher dispatcher;
+ *
  *     dispatcher.subscribe(
  *         DemoEvent::descriptor,
  *         std::bind(&DemoObserver::handle, observer, _1)
  *     );
+ *
  *     dispatcher.post(DemoEvent{});
  * 
  * std::function and std::bind are used to implement callbacks.
@@ -28,8 +31,6 @@ class Event
 public:
 	virtual ~Event() {};
 	using DescriptorType = const char*;
-	// I'm not sure what the point of having both a public DescriptorType
-	// variable and DescriptorType getter method.
 	virtual DescriptorType type() const = 0;
 };
 
