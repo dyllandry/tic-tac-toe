@@ -1,35 +1,7 @@
-# Todo
+# Todo 
+this is *a test* or **two**
 
-- [x] add makefile for building src/main.cpp into /bin directory
-	- [x] compile & link main.cpp
-	- [x] build main.cpp into /bin
-	- [x] build src/main.cpp into /bin
-	- [x] create bin directory if it doesn't exist @done(2021-06-02)
-	- <https://makefiletutorial.com/>
-
-- Events
-	- [x] Event
-	- [x] Dispatcher
-	- [x] review code for any parts I don't understand
-		- [x] what an r value and r value reference is
-		- [x] why does std::bind and std::function used for callbacks?
-			- We use std::bind just to create a member function pointer to DemoObserver handle function
-	- <https://bastian.rieck.ru/blog/posts/2015/event_system_cxx11/>
-
-- Git
-	- [x] create repo
-	- [x] push to master
-
-- neovim
-	- Considering neovim can crash and delete my open file, I don't want that to happen.
-	- [ ] Look into backup system for neovim, like keeping last several saved versions of any edited file.
-
-- Basic Entity
-	- First, skim through what's out there to see what usually makes up an entity.
-		- If I eventually just want to do an ID and method for adding components, fine.
-		- But at least at first we would have been exposed to what others are doing.
-	- [ ] Entity
-	- [ ] EntityManager
+Start trying to use Jira Board: <https://dyllandry.atlassian.net/jira/software/projects/TTT/boards/1>
 
 - Basic rendering ecs
 	- should I start with a simpler component other than graphics?
@@ -39,9 +11,11 @@
 	- [ ] RenderComponent
 	- [ ] RenderTextComponent
 	- [ ] RenderTextComponentSystem
+	- [ ] Attaching components to entities (store component in component system)
 
 - [ ] makefile improvements
 	- [ ] use path variables instead of typing src/ and bin/
+	- [ ] double check that files that don't need recompilation aren't being recompiled
 
 # Scratch Notes
 
