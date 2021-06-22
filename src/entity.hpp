@@ -2,6 +2,7 @@
 #define ENTITY_H
 
 #include "comparators.hpp"
+#include <assert.h>
 #include <iostream>
 #include <map>
 
@@ -20,10 +21,8 @@ public:
 	using Id = int;
 	Id id();
 
-	void addComponent(Component* component);
-
 	template<typename T>
-	T& addTemplateComponent()
+	T& addComponent()
 	{
 		assert(_components.find(T::descriptor) == _components.end());
 		T* component = new T(_id);

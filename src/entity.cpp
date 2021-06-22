@@ -23,9 +23,3 @@ Entity::Id Entity::makeId()
 	return nextId++;
 }
 
-void Entity::addComponent(Component* component)
-{
-	assert(_components.find(component->type()) == _components.end());
-	_components[component->type()] = component;
-}
-
