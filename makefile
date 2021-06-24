@@ -2,9 +2,10 @@ LDFLAGS  := -L lib/SFML-2.5.1/lib -lsfml-graphics -lsfml-window -lsfml-system
 CXXFLAGS := -I lib/SFML-2.5.1/include
 SRCDIR   := src
 OBJDIR   := bin
+MAIN_OBJ_REQS := $(OBJDIR)/main.o $(OBJDIR)/entity.o $(OBJDIR)/text-component-system.o $(OBJDIR)/event.o
 
-$(OBJDIR)/main: $(OBJDIR)/main.o $(OBJDIR)/entity.o $(OBJDIR)
-	g++ -o $(OBJDIR)/main $(OBJDIR)/main.o $(OBJDIR)/entity.o $(LDFLAGS)
+$(OBJDIR)/main: $(MAIN_OBJ_REQS) $(OBJDIR)
+	g++ -o $(OBJDIR)/main $(MAIN_OBJ_REQS) $(LDFLAGS)
 
 # for each .o prerequisite specified by previous rules, expands to: 
 # bin/entity.o: src/entity.cpp bin

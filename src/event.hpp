@@ -20,10 +20,6 @@
  * https://stackoverflow.com/questions/6610046/stdfunction-and-stdbind-what-are-they-and-when-should-they-be-used
  */
 
-// TODO: each type of event, and the dispatcher, should be in their own header
-// so that if one event type changes, not every cpp file that uses an event
-// needs to be recompiled.
-
 #include "comparators.hpp"
 #include <cstring>
 #include <functional>
