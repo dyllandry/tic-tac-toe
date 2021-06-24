@@ -4,8 +4,8 @@
 #include <iostream>
 
 Entity::Entity() {
-	std::cout << "new Entity (id: " << _id << ")\n";
 	_id = makeId();
+	std::cout << "new Entity (id: " << _id << ")\n";
 }
 
 Entity::~Entity()
