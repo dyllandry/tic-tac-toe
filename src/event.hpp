@@ -20,17 +20,11 @@
  * https://stackoverflow.com/questions/6610046/stdfunction-and-stdbind-what-are-they-and-when-should-they-be-used
  */
 
-// TODO: each type of event, and the dispatcher, should be in their own header
-// so that if one event type changes, not every cpp file that uses an event
-// needs to be recompiled.
-
 #include "comparators.hpp"
 #include <cstring>
 #include <functional>
 #include <vector>
 #include <map>
-
-class DemoTimerComponent;
 
 using Id = int;
 
@@ -47,31 +41,6 @@ class DemoEvent : public Event
 public:
 	DemoEvent() = default;
 	static constexpr DescriptorType descriptor = "DemoEvent";
-	virtual DescriptorType type() const { return descriptor; }
-};
-
-class DemoTimerComponentCreated : public Event
-{
-public:
-	DemoTimerComponent* component;
-
-	DemoTimerComponentCreated(DemoTimerComponent& _component)
-		: component(&_component) {};
-
-	static constexpr DescriptorType descriptor = "DemoTimerComponentCreated";
-	virtual DescriptorType type() const { return descriptor; }
-};
-
-class DemoTimerComponentDestroyed : public Event
-{
-public:
-	DemoTimerComponent* component;
-
-	DemoTimerComponentDestroyed(DemoTimerComponent& _component)
-		: component(&_component) {}
-
-	static constexpr DescriptorType descriptor = "DemoTimerComponentDestroyed";
-
 	virtual DescriptorType type() const { return descriptor; }
 };
 

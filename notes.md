@@ -1,20 +1,9 @@
 # Todo 
-this is *a test* or **two**
 
-Start trying to use Jira Board: <https://dyllandry.atlassian.net/jira/software/projects/TTT/boards/1>
-
-- Basic rendering ecs
-	- should I start with a simpler component other than graphics?
-	- Remember Jasson said some components are simple and can just be data.
-	- Remember Jasson had a SystemManager to run update on all the Systems
-		- And I think the EntityManager called update on the SystemManager
-	- [ ] RenderComponent
-	- [ ] RenderTextComponent
-	- [ ] RenderTextComponentSystem
-	- [ ] Attaching components to entities (store component in component system)
+Start trying to primarily use Jira Board: <https://dyllandry.atlassian.net/jira/software/projects/TTT/boards/1>
 
 - [ ] makefile improvements
-	- [ ] use path variables instead of typing src/ and bin/
+	- [ ] learn solution that doesn't require me to add each file manually
 	- [ ] double check that files that don't need recompilation aren't being recompiled
 
 # Scratch Notes

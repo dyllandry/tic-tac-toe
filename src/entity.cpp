@@ -4,8 +4,8 @@
 #include <iostream>
 
 Entity::Entity() {
-	std::cout << "new Entity (id: " << _id << ")\n";
 	_id = makeId();
+	std::cout << "new Entity (id: " << _id << ")\n";
 }
 
 Entity::~Entity()
@@ -21,11 +21,5 @@ Entity::Id Entity::makeId()
 {
 	static Id nextId{0};
 	return nextId++;
-}
-
-void Entity::addComponent(Component* component)
-{
-	assert(_components.find(component->type()) == _components.end());
-	_components[component->type()] = component;
 }
 

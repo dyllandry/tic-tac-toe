@@ -13,7 +13,7 @@ void Dispatcher::post(const Event& event) const
 
 	if (_observers.find(type) == _observers.end())
 	{
-		std::cout << "No observers found." << std::endl;
+		std::cout << "No observers found for event type " << type << std::endl;
 		return;
 	}
 

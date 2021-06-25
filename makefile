@@ -1,16 +1,21 @@
-# FIXME: These files may be recompiled even if there are no changes.
+LDFLAGS  := -L lib/SFML-2.5.1/lib -lsfml-graphics -lsfml-window -lsfml-system
+CXXFLAGS := -I lib/SFML-2.5.1/include
+SRCDIR   := src
+OBJDIR   := bin
+MAIN_OBJ_REQS := $(OBJDIR)/main.o $(OBJDIR)/entity.o $(OBJDIR)/text-component-system.o $(OBJDIR)/event.o
 
-main: main.o bin
-	g++ -o bin/main bin/main.o
+$(OBJDIR)/main: $(MAIN_OBJ_REQS) $(OBJDIR)
+	g++ -o $(OBJDIR)/main $(MAIN_OBJ_REQS) $(LDFLAGS)
 
-main.o: bin
-	g++ -c src/main.cpp -o bin/main.o
+# for each .o prerequisite specified by previous rules, expands to: 
+# bin/entity.o: src/entity.cpp bin
+# 	g++ -c -I lib/SFML-2.5.1/include src/entity.cpp -o bin/entity.o
+# 	$< is first prerequisite
+# 	$@ is the matched target
+# 	% is wildcard matcher in target, and replaced with match in prerequisites and commands
+$(OBJDIR)/%.o: $(SRCDIR)/%.cpp $(OBJDIR)
+	g++ -c $(CXXFLAGS) $< -o $@
 
-event.o: bin
-	g++ -c src/event.cpp -o bin/event.o
-
-entity.o: bin
-	g++ -c src/entity.cpp -o bin/entity.o
-
-bin:
+$(OBJDIR):
 	mkdir -p bin
+
