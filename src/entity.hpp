@@ -8,7 +8,6 @@
 
 // Forward declarations
 class Component;
-class DemoTimerComponent;
 using DescriptorType = const char*;
 
 class Entity

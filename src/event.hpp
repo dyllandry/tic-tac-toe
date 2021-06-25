@@ -26,8 +26,6 @@
 #include <vector>
 #include <map>
 
-class DemoTimerComponent;
-
 using Id = int;
 
 class Event
@@ -43,31 +41,6 @@ class DemoEvent : public Event
 public:
 	DemoEvent() = default;
 	static constexpr DescriptorType descriptor = "DemoEvent";
-	virtual DescriptorType type() const { return descriptor; }
-};
-
-class DemoTimerComponentCreated : public Event
-{
-public:
-	DemoTimerComponent* component;
-
-	DemoTimerComponentCreated(DemoTimerComponent& _component)
-		: component(&_component) {};
-
-	static constexpr DescriptorType descriptor = "DemoTimerComponentCreated";
-	virtual DescriptorType type() const { return descriptor; }
-};
-
-class DemoTimerComponentDestroyed : public Event
-{
-public:
-	DemoTimerComponent* component;
-
-	DemoTimerComponentDestroyed(DemoTimerComponent& _component)
-		: component(&_component) {}
-
-	static constexpr DescriptorType descriptor = "DemoTimerComponentDestroyed";
-
 	virtual DescriptorType type() const { return descriptor; }
 };
 
