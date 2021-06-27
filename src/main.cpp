@@ -1,28 +1,18 @@
-#include "entity.hpp"
+#include "main-menu.hpp"
 #include "text-component-system.hpp"
+#include "input-event-dispatcher.hpp"
 #include <iostream>
 
 int main()
 {
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Tic-Tac-Toe");
+	window.setKeyRepeatEnabled(false);
 
 	// Initialize systems.
 	TextComponentSystem textComponentSystem;
+	InputEventDispatcher inputEventDispatcher;
 
-	// Create title screen.
-	Entity *titleEntity = new Entity();
-	auto& titleText {titleEntity->addComponent<TextComponent>()};
-	titleText.sfmlText.setString("Tic-Tac-Toe");
-	titleText.sfmlText.setOrigin(titleText.sfmlText.getLocalBounds().width / 2.0f, 0.0f);
-	titleText.sfmlText.setPosition(static_cast<float>(window.getSize().x) / 2.0f, 20.0f);
-	Entity *startTextEntity = new Entity();
-	TextComponent& startText = startTextEntity->addComponent<TextComponent>();
-	startText.sfmlText.setString("Press enter to start (under construction)");
-	startText.sfmlText.setCharacterSize(18);
-	startText.sfmlText.setOrigin(startText.sfmlText.getLocalBounds().width / 2.0f, 0);
-	startText.sfmlText.setPosition(
-		static_cast<float>(window.getSize().x) / 2.0f,
-		titleText.sfmlText.getPosition().y + titleText.sfmlText.getLocalBounds().height + 20.0f);
+	MainMenu mainMenu(window);
 
 	// Game loop.
 	while (window.isOpen())
@@ -32,6 +22,8 @@ int main()
 		{
 			if (event.type == sf::Event::Closed)
 				window.close();
+
+			inputEventDispatcher.DispatchEvent(event);
 		}
 
 		window.clear(sf::Color::Black);
